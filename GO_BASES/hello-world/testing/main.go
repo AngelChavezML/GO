@@ -5,10 +5,12 @@ Notas: No puede existir dos main.go en la misma carpeta
 package main
 //Importar multiples dependencias
 import (
-	//"fmt"
+	"fmt"
 	"github.com/fatih/color"
+	"go-bases/intro/hello-world/calculator"
 )
 //import "fmt"
 func main(){
 	color.Red("Hello world!")
+	fmt.Println(calculator.Value)
 }
