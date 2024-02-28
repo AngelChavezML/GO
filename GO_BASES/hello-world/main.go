@@ -1,6 +1,10 @@
 package main
-
-import "fmt"
+//Importar multiples dependencias
+import (
+	//"fmt"
+	"github.com/fatih/color"
+)
+//import "fmt"
 func main(){
-	fmt.Println("Hello world!")
+	color.Red("Hello world!")
 }
