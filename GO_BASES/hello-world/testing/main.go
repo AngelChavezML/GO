@@ -7,7 +7,8 @@ package main
 import (
 	"fmt"
 	"github.com/fatih/color"
-	"go-bases/intro/hello-world/calculator"
+
+	"go-bases/intro/calculator"
 )
 //import "fmt"
 func main(){
