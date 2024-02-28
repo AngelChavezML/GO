@@ -1,9 +1,10 @@
 /*
 Notas: No puede existir dos main.go en la misma carpeta
-//declaracion del paquete
+
 */
 package main
 //Importar multiples dependencias
+//Para nuestras dependencias usar nombre_del_modulo/ruta_de_carpeta_donde_esta
 import (
 	"fmt"
 	"github.com/fatih/color"
