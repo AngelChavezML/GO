@@ -1,3 +1,7 @@
+/*
+Notas: No puede existir dos main.go en la misma carpeta
+//declaracion del paquete
+*/
 package main
 //Importar multiples dependencias
 import (
