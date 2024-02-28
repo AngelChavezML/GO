@@ -1,0 +1,11 @@
+package main
+/*
+Notas: No puede existir dos main.go en la misma carpeta
+//declaracion del paquete
+*/
+//fmt nos permite imprimir en consola
+import "fmt"
+//funcion para imprimir el hola mundo
+func main(){
+	fmt.Println("Hello world!")
+}
