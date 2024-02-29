@@ -4,11 +4,11 @@ package main
 import "fmt"
 
 func discount(salary float64) (nothing float64) {
-	if salary > 50000 {
-		return salary * 0.17
-	}
 	if salary > 150000 {
 		return salary * 0.27
+	}
+	if salary > 50000 {
+		return salary * 0.17
 	}
 	return
 }
