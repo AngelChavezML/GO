@@ -1,7 +1,6 @@
 package main
 
-
-func main(){
+func main() {
 	/*var 1firstName string -- Incorrect
 
 	var lastName string -- Correct
@@ -22,4 +21,4 @@ func main(){
 	var driverLicense = true
 	var personHeight int
 	*/
-}	
+}
