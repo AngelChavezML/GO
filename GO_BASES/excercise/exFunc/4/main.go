@@ -6,48 +6,19 @@ package main
 import "fmt"
 
 const (
-	minimum = "minimum"
-
-	average = "average"
-
-	maximum = "maximum"
+	minimumValue = "minimum"
+	averageValue = "average"
+	maximumValue = "maximum"
 )
 
-func operation(operation string) (func(...int) int, error) {
-	switch operation {
-	case minimum:
-		return func(numbers ...int) int {
-			min := numbers[0]
-			for _, number := range numbers {
-				if number < min {
-					min = number
-				}
-			}
-			return min
-		}, nil
-	case average:
-		return func(numbers ...int) int {
-			sum := 0
-			for _, number := range numbers {
-				sum += number
-			}
-			return sum / len(numbers)
-		}, nil
-	case maximum:
-		return func(numbers ...int) int {
-			max := numbers[0]
-			for _, number := range numbers {
-				if number > max {
-					max = number
-				}
-			}
-			return max
-		}, nil
-	default:
-		return nil, fmt.Errorf("operation %s not supported", operation)
-	}
-}
 func main() {
+
+	const (
+		minimum = minimumValue
+		average = averageValue
+		maximum = maximumValue
+	)
+
 	minFunc, err := operation(minimum)
 
 	averageFunc, err := operation(average)
@@ -68,4 +39,38 @@ func main() {
 	fmt.Println(minValue)
 	fmt.Println(maxValue)
 	fmt.Println(averageValue)
+}
+func operation(operation string) (func(...int) int, error) {
+	switch operation {
+	case minimumValue:
+		return func(numbers ...int) int {
+			min := numbers[0]
+			for _, number := range numbers {
+				if number < min {
+					min = number
+				}
+			}
+			return min
+		}, nil
+	case averageValue:
+		return func(numbers ...int) int {
+			sum := 0
+			for _, number := range numbers {
+				sum += number
+			}
+			return sum / len(numbers)
+		}, nil
+	case maximumValue:
+		return func(numbers ...int) int {
+			max := numbers[0]
+			for _, number := range numbers {
+				if number > max {
+					max = number
+				}
+			}
+			return max
+		}, nil
+	default:
+		return nil, fmt.Errorf("operation %s not supported", operation)
+	}
 }
