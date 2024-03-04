@@ -12,12 +12,17 @@ func main() {
 		}
 	}()
 
-	sdfile, err := os.Open("customer.txt")
-
+	f, err := os.Open("customers.txt")
+	defer f.Close()
 	if err != nil {
 		err = fmt.Errorf("The indicated file was not found or is damaged%w", err)
 		panic(err)
 	}
-	srdfile, err := os.ReadFile(sdfile.Name())
+	srdfile, err := os.ReadFile(f.Name())
+	if err != nil {
+		err = fmt.Errorf("The indicated file was not found or is damaged%w", err)
+		panic(err)
+	}
 	fmt.Println(string(srdfile))
+	fmt.Println("Ejecucion finalizada")
 }
