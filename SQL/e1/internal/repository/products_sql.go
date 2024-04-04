@@ -56,3 +56,13 @@ func (r *ProductsRepository) Create(product internal.Product) (internal.Product,
 	product.Id = int(lastInsertID)
 	return product, nil
 }
+
+// Update
+func (r *ProductsRepository) Update(product internal.Product) (internal.Product, error) {
+	query := "UPDATE products SET name = ?, quantity = ?, code_value = ?, is_published = ?, expiration = ?, price = ? WHERE id = ?"
+	_, err := r.DB.Exec(query, product.Name, product.Quantity, product.Code_value, product.Is_published, product.Expiration, product.Price, product.Id)
+	if err != nil {
+		return internal.Product{}, err
+	}
+	return product, nil
+}
