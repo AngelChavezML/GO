@@ -44,3 +44,15 @@ func (r *ProductsRepository) FindById(id int) (product internal.Product, err err
 	}
 	return product, nil
 }
+
+// Create
+func (r *ProductsRepository) Create(product internal.Product) (internal.Product, error) {
+	query := "INSERT INTO products (name, quantity, code_value, is_published, expiration, price) VALUES (?, ?, ?, ?, ?, ?)"
+	result, err := r.DB.Exec(query, product.Name, product.Quantity, product.Code_value, product.Is_published, product.Expiration, product.Price)
+	if err != nil {
+		return internal.Product{}, err
+	}
+	lastInsertID, _ := result.LastInsertId()
+	product.Id = int(lastInsertID)
+	return product, nil
+}
