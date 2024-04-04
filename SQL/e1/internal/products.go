@@ -1,6 +1,11 @@
 package internal
 
-import "time"
+import (
+	"errors"
+	"time"
+)
+
+var ErrNotFound = errors.New("Product not found")
 
 type Product struct {
 	Id           int

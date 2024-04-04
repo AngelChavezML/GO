@@ -27,3 +27,20 @@ func (r *ProductsRepository) FindAll() (all_Products []internal.Product, err err
 
 	return all_Products, nil
 }
+
+// Get by id
+func (r *ProductsRepository) FindById(id int) (product internal.Product, err error) {
+	query := "SELECT * FROM products WHERE id = ?"
+	row := r.DB.QueryRow(query, id)
+	if row.Err() != nil {
+		return internal.Product{}, row.Err()
+	}
+	err = row.Scan(&product.Id, &product.Name, &product.Quantity, &product.Code_value, &product.Is_published, &product.Expiration, &product.Price)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return internal.Product{}, internal.ErrNotFound
+		}
+		return internal.Product{}, err
+	}
+	return product, nil
+}
