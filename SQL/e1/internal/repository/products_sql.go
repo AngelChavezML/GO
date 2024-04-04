@@ -66,3 +66,13 @@ func (r *ProductsRepository) Update(product internal.Product) (internal.Product,
 	}
 	return product, nil
 }
+
+// Delete
+func (r *ProductsRepository) Delete(id int) error {
+	query := "DELETE FROM products WHERE id = ?"
+	_, err := r.DB.Exec(query, id)
+	if err != nil {
+		return err
+	}
+	return nil
+}
